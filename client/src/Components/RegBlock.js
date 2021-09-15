@@ -36,6 +36,12 @@ const RegBlock = () => {
           <Label>Confirm Password</Label> <StyledInput id="confirm-pass" />
         </Columnal>
       </form>
+      <TOSdiv>
+        <input type="checkbox" id="tos" />
+        <Label>
+          I have read and agree to the <a href="#">terms of service</a>
+        </Label>
+      </TOSdiv>
     </Wrapper>
   );
 };
@@ -54,6 +60,17 @@ const Wrapper = styled.div`
     box-shadow: 2px 2px grey;
     border: 1px solid grey;
   }
+`;
+
+const TOSdiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4%;
+  align-items: center;
+  background-color: lightgrey;
+  width: fit-content;
+  height: 4rem;
 `;
 
 const Header = styled.h1`
