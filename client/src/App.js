@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   justify-content: center;
   height: 96vh;
   width: 99.3vw;
+ 
 `;
 
 export default App;
