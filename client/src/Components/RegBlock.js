@@ -8,6 +8,7 @@ let user = {
   last: null,
   email: null,
   phone: null,
+  uName: null,
   birthday: null
 }
 
@@ -15,14 +16,45 @@ let user = {
     let firstName = document.getElementById("first-name").value;
     let lastName = document.getElementById("last-name").value;
     let emailAddress = document.getElementById("email").value;
-    let phoneNumber = document.getElementById("phone-number").value;
-    let dob = `${document.getElementById("dd")}/${document.getElementById("mm")}/${document.getElementById("yyyy")}`
+    let phoneNumber = document.getElementById("phoneNum").value;
+    let dob = document.getElementById("dd").value
+    let userName = document.getElementById("username").value
     if (firstName.length > 0){
       user.first = firstName
     } if (firstName.length === 0){
       user.first = null
     }
-    return console.log(user);
+    
+    if (lastName.length > 0){
+      user.last = lastName
+    } if (lastName.length === 0){
+      user.last = null
+    }
+    
+    if (emailAddress.length > 0){
+      user.email = emailAddress
+    } if (emailAddress.length === 0){
+      user.email = null
+    } 
+    
+    if (dob.length > 0){
+      user.birthday = dob
+    }  if (dob.length === 0){
+      user.birthday = null
+    } 
+    
+    if (userName.length > 0){
+      user.uName = userName
+    }  if (userName.length === 0){
+      user.uName = null
+    } 
+    
+    if (phoneNumber.length > 0){
+      user.phone = phoneNumber
+    }  if (phoneNumber.length === 0){
+      user.phone = null
+    }
+    return console.log(user)
 
   };
 
@@ -33,21 +65,19 @@ let user = {
       <form>
         <SideBySide>
           <Label>First Name</Label>{" "}
-          <StyledInput id="first-name" onChange={inputReader} />
+          <StyledInput id="first-name" onChange={inputReader} minLength="2" required />
           <Label>Last Name</Label>{" "}
-          <StyledInput id="last-name" onChange={inputReader} />
+          <StyledInput id="last-name" onChange={inputReader} required/>
         </SideBySide>
         <Columnal>
           <Label>Email:</Label>{" "}
-          <StyledInput id="email" onChange={inputReader} />
-          <Label>Phone Number:</Label> <StyledInput id="phone-number" />
+          <StyledInput id="email" onChange={inputReader} type="email"  required/>
+          <Label>Phone Number:</Label> <StyledInput id="phoneNum" onChange={inputReader} />
         </Columnal>
         <SideBySide>
-          <Label>Username</Label> <StyledInput id="username" />
+          <Label>Username</Label> <StyledInput id="username" onChange={inputReader} required/>
           <Label>Date of Birth:</Label>
-          <ShortInput id="dd" placeholder="dd" />/
-          <ShortInput id="mm" placeholder="mm" />/
-          <ShortInput id="yyyy" placeholder="yyyy" />
+          <ShortInput id="dd"  type="date" onChange={inputReader} required/>
         </SideBySide>
         <Columnal>
           <Label>Password</Label> <StyledInput id="pass" />
@@ -120,14 +150,11 @@ const StyledInput = styled.input`
 const ShortInput = styled.input`
   border: 1px solid rgb(209, 209, 209);
   height: 1.5rem;
-  max-width: 1.5rem;
-  @media (max-width: 1279px) {
-   max-width: 1rem;
-  }
-  @media (max-width: 489px) {
-   max-width: 0.5rem;
-  }
+  max-width: fit-content;
+
 `;
+
+
 
 const SideBySide = styled.div`
   display: flex;
