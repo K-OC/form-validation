@@ -1,11 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+
+
 const RegBlock = () => {
-  const inputReader = (ev) => {
+let user = {
+  first: null,
+  last: null,
+  email: null,
+  phone: null,
+  birthday: null
+}
+
+  const inputReader = () => {
     let firstName = document.getElementById("first-name").value;
     let lastName = document.getElementById("last-name").value;
-    return console.log(firstName, lastName);
+    let emailAddress = document.getElementById("email").value;
+    let phoneNumber = document.getElementById("phone-number").value;
+    let dob = `${document.getElementById("dd")}/${document.getElementById("mm")}/${document.getElementById("yyyy")}`
+    if (firstName.length > 0){
+      user.first = firstName
+    } if (firstName.length === 0){
+      user.first = null
+    }
+    return console.log(user);
+
   };
+
 
   return (
     <Wrapper>
@@ -27,7 +47,7 @@ const RegBlock = () => {
           <Label>Date of Birth:</Label>
           <ShortInput id="dd" placeholder="dd" />/
           <ShortInput id="mm" placeholder="mm" />/
-          <ShortInput id="yy" placeholder="yy" />
+          <ShortInput id="yyyy" placeholder="yyyy" />
         </SideBySide>
         <Columnal>
           <Label>Password</Label> <StyledInput id="pass" />
