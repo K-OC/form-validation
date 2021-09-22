@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { useTheme } from "styled-components";
 
 const RegBlock = () => {
   let user = {
@@ -9,6 +9,7 @@ const RegBlock = () => {
     phone: null,
     uName: null,
     birthday: null,
+    password: null,
   };
 
   const inputReader = () => {
@@ -18,8 +19,7 @@ const RegBlock = () => {
     let phoneNumber = document.getElementById("phoneNum").value;
     let dob = document.getElementById("dd").value;
     let userName = document.getElementById("username").value;
-    let password = document.getElementById("pass").value;
-    let confirmPassword = document.getElementById("confirm-pass").value;
+
     if (firstName.length > 0) {
       user.first = firstName;
     }
@@ -62,11 +62,20 @@ const RegBlock = () => {
       user.phone = null;
     }
 
-    if (password.length > 0) {
-      console.log(password);
-    }
-
     return console.log(user);
+  };
+
+  const passwordCheck = () => {
+    let password = document.getElementById("pass").value;
+    let confirmPassword = document.getElementById("confirm-pass").value;
+    if (
+      password.length > 0 &&
+      confirmPassword.length > 0 &&
+      password === confirmPassword
+    ) {
+      user.password = password;
+      console.log(user);
+    }
   };
 
   return (
@@ -106,7 +115,7 @@ const RegBlock = () => {
           <StyledInput
             id="pass"
             type="password"
-            onChange={inputReader}
+            onChange={passwordCheck}
             required
           />
         </Columnal>
@@ -115,7 +124,7 @@ const RegBlock = () => {
           <StyledInput
             id="confirm-pass"
             type="password"
-            onChange={inputReader}
+            onChange={passwordCheck}
             required
           />
         </Columnal>
