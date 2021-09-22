@@ -1,63 +1,73 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const RegBlock = () => {
-let user = {
-  first: null,
-  last: null,
-  email: null,
-  phone: null,
-  uName: null,
-  birthday: null
-}
+  let user = {
+    first: null,
+    last: null,
+    email: null,
+    phone: null,
+    uName: null,
+    birthday: null,
+  };
 
   const inputReader = () => {
     let firstName = document.getElementById("first-name").value;
     let lastName = document.getElementById("last-name").value;
     let emailAddress = document.getElementById("email").value;
     let phoneNumber = document.getElementById("phoneNum").value;
-    let dob = document.getElementById("dd").value
-    let userName = document.getElementById("username").value
-    if (firstName.length > 0){
-      user.first = firstName
-    } if (firstName.length === 0){
-      user.first = null
+    let dob = document.getElementById("dd").value;
+    let userName = document.getElementById("username").value;
+    let password = document.getElementById("pass").value;
+    let confirmPassword = document.getElementById("confirm-pass").value;
+    if (firstName.length > 0) {
+      user.first = firstName;
     }
-    
-    if (lastName.length > 0){
-      user.last = lastName
-    } if (lastName.length === 0){
-      user.last = null
+    if (firstName.length === 0) {
+      user.first = null;
     }
-    
-    if (emailAddress.length > 0){
-      user.email = emailAddress
-    } if (emailAddress.length === 0){
-      user.email = null
-    } 
-    
-    if (dob.length > 0){
-      user.birthday = dob
-    }  if (dob.length === 0){
-      user.birthday = null
-    } 
-    
-    if (userName.length > 0){
-      user.uName = userName
-    }  if (userName.length === 0){
-      user.uName = null
-    } 
-    
-    if (phoneNumber.length > 0){
-      user.phone = phoneNumber
-    }  if (phoneNumber.length === 0){
-      user.phone = null
-    }
-    return console.log(user)
 
+    if (lastName.length > 0) {
+      user.last = lastName;
+    }
+    if (lastName.length === 0) {
+      user.last = null;
+    }
+
+    if (emailAddress.length > 0) {
+      user.email = emailAddress;
+    }
+    if (emailAddress.length === 0) {
+      user.email = null;
+    }
+
+    if (dob.length > 0) {
+      user.birthday = dob;
+    }
+    if (dob.length === 0) {
+      user.birthday = null;
+    }
+
+    if (userName.length > 0) {
+      user.uName = userName;
+    }
+    if (userName.length === 0) {
+      user.uName = null;
+    }
+
+    if (phoneNumber.length > 0) {
+      user.phone = phoneNumber;
+    }
+    if (phoneNumber.length === 0) {
+      user.phone = null;
+    }
+
+    if (password.length > 0) {
+      console.log(password);
+    }
+
+    return console.log(user);
   };
-
 
   return (
     <Wrapper>
@@ -65,25 +75,49 @@ let user = {
       <form>
         <SideBySide>
           <Label>First Name</Label>{" "}
-          <StyledInput id="first-name" onChange={inputReader} minLength="2" required />
+          <StyledInput
+            id="first-name"
+            onChange={inputReader}
+            minLength="2"
+            required
+          />
           <Label>Last Name</Label>{" "}
-          <StyledInput id="last-name" onChange={inputReader} required/>
+          <StyledInput id="last-name" onChange={inputReader} required />
         </SideBySide>
         <Columnal>
           <Label>Email:</Label>{" "}
-          <StyledInput id="email" onChange={inputReader} type="email"  required/>
-          <Label>Phone Number:</Label> <StyledInput id="phoneNum" onChange={inputReader} />
+          <StyledInput
+            id="email"
+            onChange={inputReader}
+            type="email"
+            required
+          />
+          <Label>Phone Number:</Label>{" "}
+          <StyledInput id="phoneNum" onChange={inputReader} />
         </Columnal>
         <SideBySide>
-          <Label>Username</Label> <StyledInput id="username" onChange={inputReader} required/>
+          <Label>Username</Label>{" "}
+          <StyledInput id="username" onChange={inputReader} required />
           <Label>Date of Birth:</Label>
-          <ShortInput id="dd"  type="date" onChange={inputReader} required/>
+          <ShortInput id="dd" type="date" onChange={inputReader} required />
         </SideBySide>
         <Columnal>
-          <Label>Password</Label> <StyledInput id="pass" />
+          <Label>Password</Label>{" "}
+          <StyledInput
+            id="pass"
+            type="password"
+            onChange={inputReader}
+            required
+          />
         </Columnal>
         <Columnal>
-          <Label>Confirm Password</Label> <StyledInput id="confirm-pass" />
+          <Label>Confirm Password</Label>{" "}
+          <StyledInput
+            id="confirm-pass"
+            type="password"
+            onChange={inputReader}
+            required
+          />
         </Columnal>
         <ButtonWrap>
           <ClearButton>Clear</ClearButton>
@@ -116,7 +150,7 @@ const Wrapper = styled.div`
   }
   @media (max-width: 1279px) {
     min-height: 100vh;
-    width: 100vw
+    width: 100vw;
   }
 `;
 
@@ -130,7 +164,8 @@ const TOSdiv = styled.div`
   width: fit-content;
   height: 4rem;
   @media (max-width: 1279px) {
-    width: 90vw
+    width: 40vw;
+    height: 3rem;
   }
 `;
 
@@ -143,7 +178,7 @@ const StyledInput = styled.input`
   height: 1.5rem;
   min-width: max-content;
   @media (max-width: 1279px) {
-   max-width: 100vw
+    max-width: 100vw;
   }
 `;
 
@@ -151,10 +186,7 @@ const ShortInput = styled.input`
   border: 1px solid rgb(209, 209, 209);
   height: 1.5rem;
   max-width: fit-content;
-
 `;
-
-
 
 const SideBySide = styled.div`
   display: flex;
@@ -164,8 +196,8 @@ const SideBySide = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 1279px) {
-   max-width: 100vw;
-   flex-directon: column;
+    max-width: 100vw;
+    /* flex-directon: column; */
   }
 `;
 const Columnal = styled.div`
@@ -173,19 +205,20 @@ const Columnal = styled.div`
   flex-direction: column;
   padding: 5px;
   @media (max-width: 1279px) {
-   max-width: 100vw;
+    max-width: 100vw;
   }
 `;
 const Label = styled.p`
   @media (max-width: 1279px) {
-  font-size: 10px;
-  }`;
+    font-size: 10px;
+  }
+`;
 
 const ButtonWrap = styled.div`
-display: flex;
-justify-content: space-between;
-padding: 1.5rem;
-`
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+`;
 
 const SubButton = styled.button``;
 
