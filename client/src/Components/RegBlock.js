@@ -73,11 +73,11 @@ const RegBlock = () => {
     if (
       password.length > 0 &&
       confirmPassword.length > 0 &&
-      password === confirmPassword
+      confirmPassword === password
     ) {
       user.password = password;
       passFlag = false;
-      console.log(user);
+      console.log(user, passFlag);
     }
     if (
       confirmPassword.length >= password.length &&
@@ -137,7 +137,11 @@ const RegBlock = () => {
             onChange={passwordCheck}
             required
           />
-          {passFlag == true ? <Warning>Passwords must match</Warning> : null}
+          {passFlag === true ? (
+            <Warning>Passwords must match</Warning>
+          ) : (
+            <Warning>blue</Warning>
+          )}
         </Columnal>
         <ButtonWrap>
           <ClearButton>Clear</ClearButton>
