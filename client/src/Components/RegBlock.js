@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled, { useTheme } from "styled-components";
 
 const RegBlock = () => {
+  let passFlag = false;
+
   let user = {
     first: null,
     last: null,
@@ -74,7 +76,15 @@ const RegBlock = () => {
       password === confirmPassword
     ) {
       user.password = password;
+      passFlag = false;
       console.log(user);
+    }
+    if (
+      confirmPassword.length >= password.length &&
+      confirmPassword !== password
+    ) {
+      passFlag = true;
+      console.log(passFlag);
     }
   };
 
@@ -127,6 +137,7 @@ const RegBlock = () => {
             onChange={passwordCheck}
             required
           />
+          {passFlag == true ? <Warning>Passwords must match</Warning> : null}
         </Columnal>
         <ButtonWrap>
           <ClearButton>Clear</ClearButton>
@@ -229,6 +240,11 @@ const ButtonWrap = styled.div`
   padding: 1.5rem;
 `;
 
+const Warning = styled.div`
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  color: red;
+`;
 const SubButton = styled.button``;
 
 const ClearButton = styled.button``;
