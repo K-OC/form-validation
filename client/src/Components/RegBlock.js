@@ -144,7 +144,7 @@ const RegBlock = () => {
           {/* {(passFlag = false ? null : <Warning>Passwords must match</Warning>)} */}
         </Columnal>
         <ButtonWrap>
-          <ClearButton>Clear</ClearButton>
+          <Button color="primary">Clear</Button>
           <SubButton>Submit</SubButton>
         </ButtonWrap>
       </form>
