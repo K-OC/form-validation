@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import styled, { useTheme } from "styled-components";
-
+import React from "react";
+import styled from "styled-components";
+import { Button } from "@material-ui/core";
 const RegBlock = () => {
   let passFlag = false;
 
@@ -86,6 +86,10 @@ const RegBlock = () => {
       passFlag = true;
       console.log(passFlag);
     }
+    if (confirmPassword.length < password.length) {
+      passFlag = false;
+      console.log(passFlag);
+    }
   };
 
   return (
@@ -137,11 +141,7 @@ const RegBlock = () => {
             onChange={passwordCheck}
             required
           />
-          {passFlag === true ? (
-            <Warning>Passwords must match</Warning>
-          ) : (
-            <Warning>blue</Warning>
-          )}
+          {/* {(passFlag = false ? null : <Warning>Passwords must match</Warning>)} */}
         </Columnal>
         <ButtonWrap>
           <ClearButton>Clear</ClearButton>
