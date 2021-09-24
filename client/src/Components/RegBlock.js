@@ -147,7 +147,7 @@ const RegBlock = () => {
           <Button color="seconary" variant="contained">
             Clear
           </Button>
-          <SubButton>Submit</SubButton>
+          <Button variant="contained" color="primary">Submit</Button>
         </ButtonWrap>
       </form>
       <TOSdiv>
