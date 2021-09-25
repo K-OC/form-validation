@@ -88,7 +88,6 @@ const RegBlock = () => {
     }
     if (confirmPassword.length < password.length) {
       passFlag = false;
-      console.log(passFlag);
     }
   };
 
@@ -141,7 +140,6 @@ const RegBlock = () => {
             onChange={passwordCheck}
             required
           />
-          {/* {(passFlag = false ? null : <Warning>Passwords must match</Warning>)} */}
         </Columnal>
         <ButtonWrap>
           <Button color="seconary" variant="contained">
@@ -170,6 +168,7 @@ const Wrapper = styled.div`
   height: 80vh;
   width: 40vw;
   border-radius: 5%;
+  background-color: white;
   &:hover {
     box-shadow: 2px 2px grey;
     border: 1px solid grey;
@@ -196,7 +195,12 @@ const TOSdiv = styled.div`
 `;
 
 const Header = styled.h1`
+display: flex;
   font-family: sans-serif;
+  background-color: #4fc3f7;
+  width: 35vw;
+  height: max-content;
+  justify-content: center;
 `;
 
 const StyledInput = styled.input`
