@@ -164,14 +164,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: sans-serif;
-  box-shadow: 2px 2px lightgrey;
+  box-shadow: 2px 2px #4fc2f7;
   height: 80vh;
   width: 40vw;
   border-radius: 5%;
   background-color: white;
   &:hover {
-    box-shadow: 2px 2px grey;
-    border: 1px solid grey;
+    box-shadow: 2px 2px #0092c4;
   }
   @media (max-width: 1279px) {
     min-height: 100vh;
@@ -197,7 +196,7 @@ const TOSdiv = styled.div`
 const Header = styled.h1`
 display: flex;
   font-family: sans-serif;
-  background-color: #4fc3f7;
+  /* background-color: #4fc3f7; */
   width: 35vw;
   height: max-content;
   justify-content: center;
